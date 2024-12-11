@@ -27,6 +27,8 @@ public class OrderService {
         order.setOrderNumber(UUID.randomUUID().toString());
       List<OrderLineItems> orderLineItems= orderedRequest.getOrderLineItemsdtoList().stream().map(this::mapToDto).toList();
      order.setOrderLineItems(orderLineItems);
+     //Calling Inventory Service If Product Available in Stock//
+
      orderRepository.save(order);
     }
 
